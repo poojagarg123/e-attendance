@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_details_admin.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\details_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_admin.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_display1.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\display1.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_yash.jpg.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\drawable-hdpi\\yash.jpg"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_display.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\display.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_icon.png.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_admin_page.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\admin_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_list.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\list.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_att_display.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\att_display.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_details.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\details.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bgimg.jpg.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\drawable-hdpi\\bgimg.jpg"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_manage.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\manage.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_register.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\register.xml"
+    },
+    {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_att.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\list_att.xml"
+    }
+]

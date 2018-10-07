@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="10px"
+      android:background="@drawable/bgimg"
+   
+    >
+    <TableLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    >
+			
+		 <TableRow >
+
+			 <TextView
+				 android:layout_width="wrap_content"
+				 android:layout_height="fill_parent"
+				 android:text="Faculty: "
+				 android:textColor="#FFFFFF"
+				 android:textSize="40px"
+				 android:textStyle="bold" />
+		<TextView 
+		android:layout_height="fill_parent"	
+				android:layout_width="wrap_content"
+				android:id="@+id/fac"
+				android:textSize="40px"
+				android:textStyle="bold"
+				android:textColor="#FFFFFF"
+		/>
+		</TableRow>
+		</TableLayout>
+		 <TableLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    >
+			
+		 <TableRow >
+
+			 <TextView
+				 android:layout_width="wrap_content"
+				 android:layout_height="fill_parent"
+				 android:text="Code : "
+				 android:textColor="#FFFFFF"
+				 android:textSize="40px"
+				 android:textStyle="bold" />
+		<TextView 
+		android:layout_height="fill_parent"
+				android:layout_width="wrap_content"
+				android:id="@+id/scode"
+				android:textSize="40px"
+				android:textColor="#FFFFFF"
+				android:textStyle="bold"
+		/>
+		</TableRow>
+		</TableLayout>
+		 <TableLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:textColor="#FFFFFF"
+    >
+			
+		 <TableRow >
+
+			 <TextView
+				 android:layout_width="wrap_content"
+				 android:layout_height="fill_parent"
+				 android:text="Total : "
+				 android:textColor="#FFFFFF"
+				 android:textSize="40px"
+				 android:textStyle="bold" />
+		<TextView 
+		android:layout_height="fill_parent"	
+				android:layout_width="wrap_content"
+				android:textColor="#FFFFFF"
+				android:id="@+id/total"
+				android:textSize="30px"
+				android:textStyle="bold"
+		/>
+		</TableRow>
+		</TableLayout>
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:textColor="#FFFFFF"
+
+		>
+
+		<TextView
+			android:id="@+id/Usn1"
+			android:layout_width="150px"
+			android:layout_height="50px"
+			android:text="Usn"
+			android:textColor="#FFFFFF"
+			android:textSize="40px" />
+
+		<TextView
+			android:id="@+id/Attended1"
+			android:layout_width="300px"
+			android:layout_height="50px"
+			android:layout_toRightOf="@id/Usn1"
+			android:gravity="center"
+			android:text="Attended"
+			android:textColor="#FFFFFF"
+			android:textSize="40px"
+
+
+			/>
+
+		<TextView
+			android:id="@+id/Missed1"
+			android:layout_width="20px"
+			android:layout_height="50px"
+			android:layout_alignParentRight="true"
+			android:layout_toRightOf="@id/Attended1"
+			android:gravity="center"
+			android:text="Missed"
+			android:textColor="#FFFFFF"
+			android:textSize="40px"></TextView>
+
+		<ListView
+			android:id="@android:id/list"
+			android:layout_width="match_parent"
+			android:layout_height="446dp"
+
+			android:layout_above="@+id/submit"
+			android:layout_below="@+id/Attended1"
+			android:layout_marginTop="15dp"
+			android:cacheColorHint="#FFFFFF"
+			android:drawSelectorOnTop="false"></ListView>
+
+
+	</RelativeLayout>
+    	</LinearLayout>

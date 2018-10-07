@@ -1,0 +1,125 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:1-28:12
+	package
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:3:7-26
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:5:7-32
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:4:7-30
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:7:5-86
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:7:22-67
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:8:2-63
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:8:19-61
+uses-permission#android.permission.SEND_SMS
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:9:2-63
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:9:19-61
+application
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:10:5-27:19
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:10:48-69
+	android:icon
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:10:18-47
+activity#com.ayaan.AyaanActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:11:9-17:20
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:12:19-51
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:11:19-48
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:13:13-16:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:15:17-77
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:15:27-74
+activity#com.ayaan.RegisterActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:18:1-79
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:18:44-76
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:18:11-43
+activity#com.ayaan.TestActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:19:5-80
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:19:45-77
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:19:15-43
+activity#com.ayaan.ManageActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:20:5-82
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:20:47-79
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:20:15-45
+activity#com.ayaan.Register_adminActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:21:9-94
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:21:59-91
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:21:19-57
+activity#com.ayaan.Admin_homeActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:22:6-87
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:22:52-84
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:22:16-50
+activity#com.ayaan.StudentActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:23:6-84
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:23:49-81
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:23:16-47
+activity#com.ayaan.FactultyActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:24:6-85
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:24:50-82
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:24:16-48
+activity#com.ayaan.ViewActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:25:7-82
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:25:47-79
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:25:17-45
+activity#com.ayaan.AttendanceActivity
+ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:26:9-89
+	android:label
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:26:54-86
+	android:name
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml:26:19-53
+uses-sdk
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vipin\StudioProjects\Attendance-System-master\app\src\main\AndroidManifest.xml

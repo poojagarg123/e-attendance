@@ -129,10 +129,12 @@ public class AttendanceActivity extends ListActivity {
                         return;
                     }
                     db.updatemissed(sid[i], missed+1);
+                    db.insertAttendanceRecord(usn[i],Sccode, "2","A");
                 }
                 else
                 {
                     attended=c1.getInt(4);
+                    db.insertAttendanceRecord(usn[i],Sccode, "2","P");
                     db.updateattend(sid[i], attended+1);
                 }
             }

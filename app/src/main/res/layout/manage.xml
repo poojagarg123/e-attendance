@@ -50,5 +50,16 @@
   		android:clickable="true"
   		
   />
+	<Button
+		android:id="@+id/csv"
+		android:paddingTop="20px"
+		android:text="Upload CSV"
+		android:layout_gravity="center"
+		android:layout_width="250px"
+		android:layout_height="wrap_content"
+		android:onClick="uploadcsv"
+		android:clickable="true"
+
+		/>
   
     </LinearLayout>

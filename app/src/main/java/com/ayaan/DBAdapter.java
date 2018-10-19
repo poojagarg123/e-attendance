@@ -15,7 +15,7 @@ public class DBAdapter
     public static final String KEY_PASSWORD = "Password";
 	public static final String KEY_CODE = "Code";
 	public static final String KEY_PHONE = "Phone";
-	public static final String KEY_USN = "Usn";
+	public static final String KEY_USN = "student_id";
 	public static final String KEY_SNAME = "Sname";
 	public static final String KEY_ATTEND = "Attended";
 	public static final String KEY_FACULTY_ID = "faculty_id";
@@ -26,28 +26,39 @@ public class DBAdapter
 	public static final String KEY_ADMIN = "Admin";
 	public static final String KEY_PASS1 = "Pass1";
 	public static final String KEY_PASS2 = "Pass2";
+    public static final String STUDENT_ID = "student_id";
+    public static final String FACULTY_CODE = "faculty_id";
+    public static final String SUBJECT_CODE = "subject_id";
+    public static final String MISSED_STATUS = "A";
+    public static final String ATTENDEDED_STATUS = "P";
+    public static final String KEY_STATUS = "status";
+    public static final String KEY_CLASS = "class_id";
+
+
+
+
+
     private static final String TAG = "STUDB";
     private static final String DATABASE_NAME1 = "YMCA_Attendance";
-    private static final String DATABASE_TABLE1 = "fac2_info";
+    private static final String DATABASE_TABLE1 = "faculty_info";
     private static final String DATABASE_TABLE2 = "stu_info";
     private static final String DATABASE_TABLE3 = "class_total";
     private static final String DATABASE_TABLE4 = "admin_values";
+    private static final String ATTENDANCE_TABLE = "attendance_info";
+    private static final String SUBJECT_TABLE = "subject";
     private static final int DATABASE_VERSION = 1;
 
     private static final String SUBJECT_CREATE =
             "create table subject (_id integer primary key autoincrement, subject_name text not null, subject_code text not null);";
 
     private static final String ATTENDANCE_CREATE =
-            "create table attendance_info (_id integer primary key autoincrement, student_id text not null, faculty_id text not null, subject_id text not null, date_taken datetime default current_timestamp);";
-
-    private static final String FACULTY_CREATE =
-            "create table faculty_info (faculty_id integer primary key autoincrement, faculty_name text not null, Password text not null);";
+            "create table attendance_info (_id integer primary key autoincrement, student_id text not null, faculty_id text not null, subject_id text not null, status text not null,date_taken datetime default current_timestamp);";
 
     private static final String DATABASE_CREATE =
-        "create table fac2_info (_id integer primary key autoincrement, Fname text not null, Password text not null, Code text not null);";
+        "create table faculty_info (_id integer primary key autoincrement, Fname text not null, Password text not null, Code text not null);";
         
     private static final String DATABASE_CREATE1 =
-        "create table stu_info (_id integer primary key autoincrement, Sname text not null, Usn text not null, Code text not null, Attended integer, Missed integer, Phone text not null);";
+        "create table stu_info (_id integer primary key autoincrement, Sname text not null, student_id text not null, Code text not null, Attended integer, Missed integer, Phone text, class_id text not null);";
         
     private static final String DATABASE_CREATE2 =
         "create table class_total (_id integer primary key autoincrement, Code text not null,Total integer);";
@@ -84,7 +95,6 @@ public class DBAdapter
             db.execSQL(DATABASE_CREATE2);
             db.execSQL(SUBJECT_CREATE);
             db.execSQL(ATTENDANCE_CREATE);
-            db.execSQL(FACULTY_CREATE);
 
         }
 
@@ -95,7 +105,13 @@ public class DBAdapter
             Log.w(TAG, "Upgrading database from version " + oldVersion 
                     + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS PESITMSESTUDENT");
+            db.execSQL("DROP table IF EXISTS "+DATABASE_TABLE1);
+            db.execSQL("DROP table IF EXISTS "+DATABASE_TABLE2);
+            db.execSQL("DROP table IF EXISTS "+DATABASE_TABLE3);
+            db.execSQL("DROP table IF EXISTS "+DATABASE_TABLE4);
+            db.execSQL("DROP table IF EXISTS "+ATTENDANCE_TABLE);
+            db.execSQL("DROP table IF EXISTS "+SUBJECT_TABLE);
+
             onCreate(db);
         }
     }    
@@ -104,6 +120,7 @@ public class DBAdapter
     {
     	Log.i(TAG, "opening the database");
         db = DBHelper.getWritableDatabase();
+//        DBHelper.onUpgrade(db,1,2);
         return this;
     }
 
@@ -128,8 +145,24 @@ public class DBAdapter
         
         return x;
     }
+
+
+    public long insertAttendanceRecord(String stud_id, String sub_code, String fac_id, String status)
+    {
+        long x;
+
+        Log.i(TAG, "INSERTING A Attendance RECORD");
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(STUDENT_ID, stud_id);
+        initialValues.put(SUBJECT_CODE, sub_code);
+        initialValues.put(FACULTY_CODE, fac_id);
+        initialValues.put(KEY_STATUS, status);
+        x=  db.insert(ATTENDANCE_TABLE, null, initialValues);
+
+        return x;
+    }
     
-    public long insertStudentRecord(String sname, String usn, String code,  int att, int miss, String phone) 
+    public long insertStudentRecord(String sname, String usn, String code,  int att, int miss, String phone, String class_id)
     {
     	long x;
     	
@@ -141,6 +174,7 @@ public class DBAdapter
         initialValues.put(KEY_ATTEND, att);
         initialValues.put(KEY_MISSED, miss);
         initialValues.put(KEY_PHONE, phone);
+        initialValues.put(KEY_CLASS,class_id);
         
         x=  db.insert(DATABASE_TABLE2, null, initialValues);
         

@@ -162,7 +162,7 @@ public class StudentActivity extends ListActivity {
 					try{
 				
 						db.open();
-						db.insertStudentRecord(ssname, ssusn, sscode, 0, 0, ssphone);
+						db.insertStudentRecord(ssname, ssusn, sscode, 0, 0, ssphone,"1");
 						db.close();
 						
 					}catch(Exception e)

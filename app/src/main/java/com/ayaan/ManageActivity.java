@@ -164,7 +164,7 @@ public void home_start(View v)
 		try{
 	
 			db.open();
-			db.insertStudentRecord(ssname, ssusn, Sccode, 0, 0, sphone);
+			db.insertStudentRecord(ssname, ssusn, Sccode, 0, 0, sphone,"1");
 			db.close();
 			
 		}catch(Exception e)

@@ -34,5 +34,10 @@ public class TestActivity extends Activity {
 		Intent i = new Intent(this,ViewActivity.class);
 		startActivity(i);
 	}
+    public void uploadcsv(View v)
+    {
+        Intent i = new Intent(this,UploadStudentList.class);
+        startActivity(i);
+    }
 		
 }

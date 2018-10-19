@@ -20,7 +20,8 @@ public class AyaanActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main); 
+        setContentView(R.layout.main);
+
         fcode=(EditText)findViewById(R.id.Username);
         fpass=(EditText)findViewById(R.id.Password);
                 

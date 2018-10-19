@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_extract_records.xml.flat",
+        "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\extract_records.xml"
+    },
+    {
         "merged": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_details_admin.xml.flat",
         "source": "C:\\Users\\vipin\\StudioProjects\\Attendance-System-master\\app\\src\\main\\res\\layout\\details_admin.xml"
     },

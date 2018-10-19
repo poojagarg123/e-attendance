@@ -18,6 +18,7 @@ public class DBAdapter
 	public static final String KEY_USN = "Usn";
 	public static final String KEY_SNAME = "Sname";
 	public static final String KEY_ATTEND = "Attended";
+	public static final String KEY_FACULTY_ID = "faculty_id";
 
 	public static final String KEY_MISSED = "Missed";
 	public static final String KEY_CHECKBOX = "Check";
@@ -26,15 +27,24 @@ public class DBAdapter
 	public static final String KEY_PASS1 = "Pass1";
 	public static final String KEY_PASS2 = "Pass2";
     private static final String TAG = "STUDB";
-    private static final String DATABASE_NAME1 = "Student1";
-    private static final String DATABASE_TABLE1 = "fac_info";
+    private static final String DATABASE_NAME1 = "YMCA_Attendance";
+    private static final String DATABASE_TABLE1 = "fac2_info";
     private static final String DATABASE_TABLE2 = "stu_info";
     private static final String DATABASE_TABLE3 = "class_total";
     private static final String DATABASE_TABLE4 = "admin_values";
     private static final int DATABASE_VERSION = 1;
 
+    private static final String SUBJECT_CREATE =
+            "create table subject (_id integer primary key autoincrement, subject_name text not null, subject_code text not null);";
+
+    private static final String ATTENDANCE_CREATE =
+            "create table attendance_info (_id integer primary key autoincrement, student_id text not null, faculty_id text not null, subject_id text not null, date_taken datetime default current_timestamp);";
+
+    private static final String FACULTY_CREATE =
+            "create table faculty_info (faculty_id integer primary key autoincrement, faculty_name text not null, Password text not null);";
+
     private static final String DATABASE_CREATE =
-        "create table fac_info (_id integer primary key autoincrement, Fname text not null, Password text not null, Code text not null);";
+        "create table fac2_info (_id integer primary key autoincrement, Fname text not null, Password text not null, Code text not null);";
         
     private static final String DATABASE_CREATE1 =
         "create table stu_info (_id integer primary key autoincrement, Sname text not null, Usn text not null, Code text not null, Attended integer, Missed integer, Phone text not null);";
@@ -54,6 +64,7 @@ public class DBAdapter
 
     public DBAdapter(Context ctx) 
     {
+
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
     }
@@ -71,8 +82,9 @@ public class DBAdapter
             db.execSQL(DATABASE_CREATE);
             db.execSQL(DATABASE_CREATE1);
             db.execSQL(DATABASE_CREATE2);
-
-
+            db.execSQL(SUBJECT_CREATE);
+            db.execSQL(ATTENDANCE_CREATE);
+            db.execSQL(FACULTY_CREATE);
 
         }
 

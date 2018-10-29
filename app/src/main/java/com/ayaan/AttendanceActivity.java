@@ -1,25 +1,22 @@
 package com.ayaan;
 import java.util.ArrayList;
-import android.app.AlertDialog;
+
 import android.app.ListActivity;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.CheckedTextView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 public class AttendanceActivity extends ListActivity {
-    public String Sccode = AyaanActivity.fccode;
+    public String Sccode = PoojaActivity.fccode;
+    public String Faccode = PoojaActivity.fcusername;
+    public String Fcclassid = TestActivity.fcclassid;
     public String[] usn;
     public int[] sid;
     public int[] missed;
@@ -34,7 +31,7 @@ public class AttendanceActivity extends ListActivity {
         try
         {
             db.open();
-            c=db.getRecordBycode(Sccode);
+            c=db.getRecordByClassAndSub(Fcclassid,Sccode);
             usn=new String[c.getCount()];
             sid=new int[c.getCount()];
             missed=new int[c.getCount()];
@@ -129,12 +126,12 @@ public class AttendanceActivity extends ListActivity {
                         return;
                     }
                     db.updatemissed(sid[i], missed+1);
-                    db.insertAttendanceRecord(usn[i],Sccode, "2","A");
+                    db.insertAttendanceRecord(usn[i],Sccode, Faccode,"A");
                 }
                 else
                 {
                     attended=c1.getInt(4);
-                    db.insertAttendanceRecord(usn[i],Sccode, "2","P");
+                    db.insertAttendanceRecord(usn[i],Sccode, Faccode,"P");
                     db.updateattend(sid[i], attended+1);
                 }
             }

@@ -23,28 +23,107 @@
 		android:layout_gravity="center"
 		android:hint="Class Code"
 		android:paddingTop="20px"
-		android:password="true"></EditText>
+		></EditText>
 	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:gravity="center"
 		>
-	<Button
+	<EditText
 		android:id="@+id/StartDate"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
+		android:gravity="center"
 		android:onClick="showDatePickerDialog"
-		android:text="Start Date" />
+		android:hint="YYYY-MM-DD"
+		android:inputType="date"
+		 />
 
-	<Button
+	<EditText
 		android:id="@+id/Enddate"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:gravity="center"
 		android:layout_gravity="right"
 		android:layout_toRightOf="@id/StartDate"
 		android:onClick="showDatePickerDialog"
-		android:text="End Date" />
+		android:hint="YYYY-MM-DD"
+		 />
+
+		<Button
+			android:id="@+id/Extract"
+			android:paddingTop="20px"
+			android:layout_below="@id/StartDate"
+			android:text="Search"
+			android:layout_gravity="center"
+			android:layout_width="250px"
+			android:layout_height="wrap_content"
+			android:onClick="Search"
+			android:clickable="true"
+
+			/>
+
 	</RelativeLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/Usn1"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#FFFFFF"
+            android:textSize="40px" />
+
+        <TextView
+
+            android:id="@+id/student_id1"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/Usn1"
+            android:text="Student id"
+            android:textColor="#FFFFFF"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/Attended1"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+
+            android:layout_toRightOf="@id/student_id1"
+            android:text="Attendance"
+            android:textColor="#FFFFFF"
+            android:textSize="40px"
+
+
+            />
+
+        <TextView
+            android:id="@+id/Missed1"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/Attended1"
+            android:text="Missed"
+            android:textColor="#FFFFFF"
+            android:textSize="40px"></TextView>
+
+		<ListView
+			android:id="@android:id/list"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+			android:layout_below="@+id/Attended1"
+			android:layout_marginTop="15dp"
+			android:cacheColorHint="#FFFFFF"
+			android:drawSelectorOnTop="false"></ListView>
+    </RelativeLayout>
+
+
+
 
 </LinearLayout>

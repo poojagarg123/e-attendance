@@ -9,11 +9,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class AyaanActivity extends Activity {
+public class PoojaActivity extends Activity {
 	public EditText fcode;
 	public EditText fpass;
+	public EditText fusername;
 	public static String fccode;
 	public String fcpass;
+	public static String fcusername;
 	DBAdapter db;
 	Cursor c;
     /** Called when the activity is first created. */
@@ -21,8 +23,8 @@ public class AyaanActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        fcode=(EditText)findViewById(R.id.Username);
+        fcode=(EditText)findViewById(R.id.subCode);
+		fusername=(EditText)findViewById(R.id.facname);
         fpass=(EditText)findViewById(R.id.Password);
                 
     }
@@ -38,7 +40,8 @@ public class AyaanActivity extends Activity {
     	  DBAdapter db = new DBAdapter(this);
     	    fccode=fcode.getText().toString();
   			fcpass=fpass.getText().toString();
-  			if(fccode.equals("")||fcpass.equals(""))
+		  	fcusername=fusername.getText().toString();
+  			if(fccode.equals("")||fcpass.equals("")||fcusername.equals(""))
   			{
   				if(fccode.equals(""))
   				{
@@ -48,19 +51,23 @@ public class AyaanActivity extends Activity {
   				{	
   					Toast.makeText(getApplicationContext(), "Pls Fill in the Password!", Toast.LENGTH_LONG).show();
   				}
+  				else if(fcusername.equals(""))
+				{
+					Toast.makeText(getApplicationContext(), "Pls Fill in the Username!", Toast.LENGTH_LONG).show();
+				}
   			}
   			else
   			{
   				try{
   			
   					db.open();
-  					c=db.getRecordByName(fccode);
+  					c=db.getRecordByFacNameSubCode(fcusername,fccode);
   					if(c.getCount()==0)
   					{
   						Toast.makeText(getApplicationContext(), "No Teacher is taking this course", Toast.LENGTH_LONG).show();
   						return ;	
   					}
-  					if(!c.getString(2).equals(fcpass))
+  					if(!c.getString(3).equals(fcpass))
   					{
   						Toast.makeText(getApplicationContext(), "Incorrect Password!", Toast.LENGTH_LONG).show();
   						return ;

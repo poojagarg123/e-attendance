@@ -13,9 +13,11 @@ public class RegisterActivity extends Activity {
 	public EditText fname;
 	public EditText fpass;
 	public EditText fcode;
+	public EditText fusername;
 	public String fcname;
 	public String fcpass;
 	public String fccode;
+	public String fcusername;
 	DBAdapter db;
 	Cursor c;
 	@Override
@@ -25,6 +27,8 @@ public class RegisterActivity extends Activity {
         fname=(EditText)findViewById(R.id.Tname);
         fpass=(EditText)findViewById(R.id.Password);
         fcode=(EditText)findViewById(R.id.Code);
+		fusername=(EditText)findViewById(R.id.facultyusername);
+
         db = new DBAdapter(this);
 	}
 	public void home_start(View v)
@@ -32,16 +36,17 @@ public class RegisterActivity extends Activity {
 		fcname=fname.getText().toString();
 		fcpass=fpass.getText().toString();
 		fccode=fcode.getText().toString();
+		fcusername=fusername.getText().toString();
 	
 		try
 		{
 			db.open();
 			
-			c=db.getRecordByName(fccode);
+			c=db.getRecordByFacNameSubCode(fcusername, fccode);
 			
 				if(c.getCount()!=0)
 				{
-					Toast.makeText(getApplicationContext(), "This Subject is taken by other Teacher", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "This Subject already present for particular faculty", Toast.LENGTH_LONG).show();
 					db.close();
 					return ;	
 				}
@@ -78,6 +83,7 @@ public class RegisterActivity extends Activity {
 	          	db.open();        
 	           db.insertRecord(
 	          		fcname,
+				    fcusername,
 	          		fcpass,
 	          		fccode
 	          		); 
@@ -89,7 +95,7 @@ public class RegisterActivity extends Activity {
 					
 			}
      }
-		Intent i=new Intent(this,AyaanActivity.class);
+		Intent i=new Intent(this,PoojaActivity.class);
 		finish();
         startActivity(i);
    }

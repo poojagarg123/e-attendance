@@ -13,9 +13,11 @@ public class FactultyActivity extends Activity {
 	public EditText fname;
 	public EditText fpass;
 	public EditText fcode;
+	public EditText fusername;
 	public String fcname;
 	public String fcpass;
 	public String fccode;
+	public String fcusername;
 	DBAdapter db;
 	Cursor c;
 
@@ -26,19 +28,22 @@ public class FactultyActivity extends Activity {
         fname=(EditText)findViewById(R.id.Tname);
         fpass=(EditText)findViewById(R.id.Password);
         fcode=(EditText)findViewById(R.id.Code);
+		fusername=(EditText)findViewById(R.id.facultyusername);
         db = new DBAdapter(this);
 	}
 	public void home_start(View v)
     {
 		fcname=fname.getText().toString();
 		fcpass=fpass.getText().toString();
+
 		fccode=fcode.getText().toString();
+		fcusername = fusername.getText().toString();
 	
 		try
 		{
 			db.open();
 			
-			c=db.getRecordByName(fccode);
+			c=db.getRecordByFacNameSubCode(fcusername, fccode);;
 			
 				if(c.getCount()!=0)
 				{
@@ -78,9 +83,10 @@ public class FactultyActivity extends Activity {
 			
 	          	db.open();        
 	           db.insertRecord(
-	          		fcname,
-	          		fcpass,
-	          		fccode
+					   fcname,
+					   fcusername,
+					   fcpass,
+					   fccode
 	          		); 
 	           db.insertClass(fccode, 0);
 	          	db.close();

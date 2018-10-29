@@ -6,19 +6,21 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.sax.StartElementListener;
 import android.util.Log;
 
 public class DBAdapter 
 {
     public static final String KEY_ROWID = "_id";
     public static final String KEY_FACNAME = "Fname";
+    public static final String KEY_FACUSERNAME = "FUsername";
     public static final String KEY_PASSWORD = "Password";
-	public static final String KEY_CODE = "Code";
+	public static final String KEY_CODE = "subject_id";
 	public static final String KEY_PHONE = "Phone";
 	public static final String KEY_USN = "student_id";
 	public static final String KEY_SNAME = "Sname";
 	public static final String KEY_ATTEND = "Attended";
-	public static final String KEY_FACULTY_ID = "faculty_id";
+	public static final String KEY_FACULTY_ID = "FUsername";
 
 	public static final String KEY_MISSED = "Missed";
 	public static final String KEY_CHECKBOX = "Check";
@@ -27,7 +29,7 @@ public class DBAdapter
 	public static final String KEY_PASS1 = "Pass1";
 	public static final String KEY_PASS2 = "Pass2";
     public static final String STUDENT_ID = "student_id";
-    public static final String FACULTY_CODE = "faculty_id";
+    public static final String FACULTY_CODE = "FUsername";
     public static final String SUBJECT_CODE = "subject_id";
     public static final String MISSED_STATUS = "A";
     public static final String ATTENDEDED_STATUS = "P";
@@ -49,19 +51,19 @@ public class DBAdapter
     private static final int DATABASE_VERSION = 1;
 
     private static final String SUBJECT_CREATE =
-            "create table subject (_id integer primary key autoincrement, subject_name text not null, subject_code text not null);";
+            "create table subject (_id integer primary key autoincrement, subject_name text not null,  subject_id text not null,  CONSTRAINT subject_unique UNIQUE (subject_id));";
 
     private static final String ATTENDANCE_CREATE =
-            "create table attendance_info (_id integer primary key autoincrement, student_id text not null, faculty_id text not null, subject_id text not null, status text not null,date_taken datetime default current_timestamp);";
+            "create table attendance_info (_id integer primary key autoincrement, student_id text not null, FUsername text not null, subject_id text not null, status text not null,credit integer, date_taken datetime default current_timestamp);";
 
     private static final String DATABASE_CREATE =
-        "create table faculty_info (_id integer primary key autoincrement, Fname text not null, Password text not null, Code text not null);";
+        "create table faculty_info (_id integer primary key autoincrement, Fname text not null, FUsername text not null, Password text not null, subject_id text not null);";
         
     private static final String DATABASE_CREATE1 =
-        "create table stu_info (_id integer primary key autoincrement, Sname text not null, student_id text not null, Code text not null, Attended integer, Missed integer, Phone text, class_id text not null);";
+        "create table stu_info (_id integer primary key autoincrement, Sname text not null, student_id text not null, subject_id text not null, Attended integer, Missed integer, Phone text, class_id text not null, CONSTRAINT subject_unique UNIQUE (student_id, subject_id, class_id));";
         
     private static final String DATABASE_CREATE2 =
-        "create table class_total (_id integer primary key autoincrement, Code text not null,Total integer);";
+        "create table class_total (_id integer primary key autoincrement, subject_id text not null,Total integer);";
        
     private static final String DATABASE_CREATE3 =
         "create table admin_values (_id integer primary key autoincrement, Admin text not null, Pass1 text not null, Pass2 text not null);";
@@ -120,7 +122,7 @@ public class DBAdapter
     {
     	Log.i(TAG, "opening the database");
         db = DBHelper.getWritableDatabase();
-//        DBHelper.onUpgrade(db,1,2);
+//        DBHelper.onUpgrade(db,2,3);
         return this;
     }
 
@@ -132,19 +134,22 @@ public class DBAdapter
     }
     
     //---insert a title into the database---
-    public long insertRecord(String fname, String pass, String code) 
+    public long insertRecord(String fname, String fusername, String pass, String code)
     {
     	long x;
     	
     	Log.i(TAG, "INSERTING A FACULTY RECORD");
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_FACNAME, fname);
+        initialValues.put(KEY_FACUSERNAME, fusername);
         initialValues.put(KEY_PASSWORD, pass);
         initialValues.put(KEY_CODE, code);
         x=  db.insert(DATABASE_TABLE1, null, initialValues);
         
         return x;
     }
+
+
 
 
     public long insertAttendanceRecord(String stud_id, String sub_code, String fac_id, String status)
@@ -224,9 +229,31 @@ public class DBAdapter
                 null, 
                 null);
     }
-    
+
+
+    public Cursor getAttendeanceBetweenDates(String sub_code, String class_code, String start_date, String end_date)
+    {
+        Cursor mCursor = db.query(DATABASE_TABLE2, new String[] {
+                        KEY_ROWID,
+                        KEY_SNAME,
+                        KEY_USN,
+                        KEY_CODE,
+                        KEY_ATTEND,
+                        KEY_MISSED,
+                        KEY_PHONE},
+                null,
+                null,
+                null,
+                null,
+                null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
   //---retrieves a particular student record---
-    public Cursor getRecordByName(String code) throws SQLException 
+    public Cursor getRecordByName(String code) throws SQLException
     {
     	Log.i("Ayaan", "GETTING STUDENT RECORD");
     	Cursor mCursor =
@@ -247,6 +274,33 @@ public class DBAdapter
         }
         return mCursor;
     }
+
+
+
+
+    public Cursor getRecordByFacNameSubCode(String fac_username, String code) throws SQLException
+    {
+        Log.i("Ayaan", "GETTING STUDENT RECORD");
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE1, new String[] {
+                                KEY_ROWID,
+                                KEY_FACNAME,
+                                KEY_FACUSERNAME,
+                                KEY_PASSWORD,
+                                KEY_CODE
+                        },
+                        KEY_CODE + "=" +"\""+ code+"\"" + " AND " + KEY_FACUSERNAME + "=" +"\""+ fac_username+"\"",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
    
     public Cursor getCount(String code) throws SQLException 
     {
@@ -270,7 +324,7 @@ public class DBAdapter
     }
     
     
-    public Cursor getRecordByUsn(String Code, String usn) throws SQLException 
+    public Cursor getRecordByUsn(String Code, String usn, String class_id) throws SQLException
     {
     	Log.i("Ayaan", "getRecordByUsn()");
     	Cursor mCursor;
@@ -282,10 +336,11 @@ public class DBAdapter
                 		KEY_CODE,
                 		KEY_ATTEND,
                 		KEY_MISSED,
-                		KEY_PHONE
+                		KEY_PHONE,
+                        KEY_CLASS
                 		}, 
-                		 KEY_CODE +"=?" +" AND " + KEY_USN +"=?",
-                         new String[] {Code, usn}, 
+                		 KEY_CODE +"=?" +" AND " + KEY_USN +"=?" +" AND " + KEY_CLASS +"=?",
+                         new String[] {Code, usn, class_id},
                 		null, 
                 		null, 
                 		null);
@@ -296,7 +351,7 @@ public class DBAdapter
         } 
         return mCursor;
     }
-    public Cursor getRecordBycode(String code) throws SQLException 
+    public Cursor getRecordBycode(String code) throws SQLException
     {
     	Log.i("Ayaan", "GETTING STUDENT RECORD");
     	Cursor mCursor =
@@ -320,6 +375,59 @@ public class DBAdapter
         }
         return mCursor;
     }
+
+
+    public Cursor getRecordByClassAndSub(String class_id, String code) throws SQLException
+    {
+        Log.i("Ayaan", "GETTING STUDENT RECORD");
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE2, new String[] {
+                                KEY_ROWID,
+                                KEY_SNAME,
+                                KEY_USN,
+                                KEY_CODE,
+                                KEY_ATTEND,
+                                KEY_MISSED,
+                                KEY_PHONE,
+                                KEY_CLASS
+                        },
+                        KEY_CODE + "=" +"\""+ code+"\"" + " AND " + KEY_CLASS + "=" +"\""+ class_id+"\"",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+
+    public Cursor getRecordforAttendance(String code) throws SQLException
+    {
+        Log.i("Ayaan", "GETTING STUDENT RECORD");
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE2, new String[] {
+                                KEY_ROWID,
+                                KEY_SNAME,
+                                KEY_USN,
+                                KEY_CODE,
+                                KEY_ATTEND,
+                                KEY_MISSED,
+                                KEY_PHONE
+                        },
+                        KEY_CODE + "=" +"\""+ code+"\"" ,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
     
     public Cursor getRecordTotal(String code) throws SQLException 
     {
@@ -332,7 +440,7 @@ public class DBAdapter
                 		}, 
                 		KEY_CODE + "=" +"\""+ code+"\"", 
                 		null,
-                		null, 
+                		null,
                 		null, 
                 		null, 
                 		null);
@@ -367,7 +475,17 @@ public class DBAdapter
         }
         return mCursor;
     }
-    
+
+    public Cursor getAdvanceSearch(String subject_code, String class_id, String start_date, String end_date) throws SQLException
+    {
+        Log.i("Ayaan", "GETTING STUDENT RECORD by id");
+        Cursor mCursor =
+                db.rawQuery("select distinct s1.Sname as Sname,s1.student_id as _id,count(case when s2.status ='A'  then 1 end) as absent_count,count(case when s2.status ='P' then 1 end) as present_count from stu_info s1 inner join attendance_info s2 where s1.student_id=s2.student_id and s2.subject_id=s1.subject_id and s2.subject_id = ? and s1.class_id = ? and s2.date_taken>= ? and s2.date_taken<= ?  group by s2.student_id", new String[]{subject_code, class_id, start_date, end_date});
+
+        return mCursor;
+    }
+    //db.rawQuery("select * from table where column = ?",);
+
     public void updateattend(int id,int new_att) throws SQLException
     {
 

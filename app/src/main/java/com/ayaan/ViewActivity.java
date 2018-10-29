@@ -8,7 +8,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class ViewActivity extends ListActivity {
-	public String Sccode = AyaanActivity.fccode;
+	public String Sccode = PoojaActivity.fccode;
+	public String Fcclassid = TestActivity.fcclassid;
 	DBAdapter db;
 	Cursor c,c1;
 	public ListAdapter adapter;
@@ -28,9 +29,9 @@ public class ViewActivity extends ListActivity {
          	c=db.getRecordBycode(Sccode);
          	adapter = new SimpleCursorAdapter(
         			this, 
-        			R.layout.display, 
+        			R.layout.display,
         			c, 
-        			new String[] {"Usn", "Attended", "Missed"}, 
+        			new String[] {"student_id", "Attended", "Missed"},
         			new int[] {R.id.Usn,R.id.Attended,R.id.Missed});
         	setListAdapter(adapter);
         			db.close();

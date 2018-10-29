@@ -125,7 +125,7 @@ public class StudentActivity extends ListActivity {
 			{
 				
 				db.open();
-				c=db.getRecordByUsn(sscode, ssusn);
+				c=db.getRecordByUsn(sscode, ssusn,"34");
 					if(c.getCount()!=0)
 					{
 						Toast.makeText(getApplicationContext(), "The Student has already \n registered for this subject", Toast.LENGTH_LONG).show();

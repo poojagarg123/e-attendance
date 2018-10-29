@@ -19,16 +19,18 @@ public class ManageActivity extends ListActivity {
 	public EditText sname;
 	public EditText susn;
 	public EditText phone;
-	public String Sccode = AyaanActivity.fccode;
+	public String Sccode = PoojaActivity.fccode;
+    public String Fcclassid = TestActivity.fcclassid;
 	public String ssname;
 	public ListAdapter adapter;
 	public String ssusn;
 	public String sphone;
 	DBAdapter db;
 	Cursor c;
-	
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details);
         sname=(EditText)findViewById(R.id.Sname);
@@ -40,13 +42,13 @@ public class ManageActivity extends ListActivity {
         	
         	db.open();
         	
-        	c=db.getRecordBycode(Sccode);
+        	c=db.getRecordByClassAndSub(Fcclassid,Sccode);
         	
         	adapter = new SimpleCursorAdapter(
         			this, 
         			R.layout.display1, 
         			c, 
-        			new String[] {"Sname", "Usn"}, 
+        			new String[] {"Sname", "student_id"},
         			new int[] {R.id.Sname,R.id.USN});
         	        setListAdapter(adapter);
         			db.close();
@@ -130,10 +132,10 @@ public void home_start(View v)
 	{
 		
 		db.open();
-		c=db.getRecordByUsn(Sccode, ssusn);
+		c=db.getRecordByUsn(Sccode, ssusn,Fcclassid);
 			if(c.getCount()!=0)
 			{
-				Toast.makeText(getApplicationContext(), "The Student has already \n registered for this subject", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "The Student has already \n registered for this subject of this class", Toast.LENGTH_LONG).show();
 				db.close();
 				return;
 			}
@@ -164,7 +166,7 @@ public void home_start(View v)
 		try{
 	
 			db.open();
-			db.insertStudentRecord(ssname, ssusn, Sccode, 0, 0, sphone,"1");
+			db.insertStudentRecord(ssname, ssusn, Sccode, 0, 0, sphone,Fcclassid);
 			db.close();
 			
 		}catch(Exception e)

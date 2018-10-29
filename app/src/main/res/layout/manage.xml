@@ -6,6 +6,16 @@
      android:paddingTop="200px"  
      android:background="@drawable/bgimg"
          >
+
+	<EditText
+		android:id="@+id/class_id"
+		android:paddingTop="20px"
+		android:layout_height="wrap_content"
+		android:hint="Class Id"
+		android:layout_width="350px"
+		android:layout_gravity="center">
+		<requestFocus></requestFocus>
+	</EditText>
     <Button 
   		android:id="@+id/man_stu"
   		android:paddingTop="20px"
@@ -40,7 +50,7 @@
   		
   />
     <Button 
-  		android:id="@+id/view"
+  		android:id="@+id/log_out"
   		android:paddingTop="20px"
   		android:text="Log Out"
   		android:layout_gravity="center"
@@ -50,10 +60,22 @@
   		android:clickable="true"
   		
   />
+
+	<Button
+		android:id="@+id/Extract"
+		android:paddingTop="20px"
+		android:text="Advance Attendance Search"
+		android:layout_gravity="center"
+		android:layout_width="250px"
+		android:layout_height="wrap_content"
+		android:onClick="ExtractRecords"
+		android:clickable="true"
+
+		/>
 	<Button
 		android:id="@+id/csv"
 		android:paddingTop="20px"
-		android:text="Upload CSV"
+		android:text="Upload Students List"
 		android:layout_gravity="center"
 		android:layout_width="250px"
 		android:layout_height="wrap_content"

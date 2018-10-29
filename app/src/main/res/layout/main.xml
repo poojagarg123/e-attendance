@@ -6,15 +6,27 @@
     android:paddingTop="125px"
       android:background="@drawable/bgimg"
     >
+
+	<EditText
+		android:id="@+id/facname"
+		android:paddingTop="20px"
+		android:layout_height="wrap_content"
+		android:hint="Faculty Username"
+		android:layout_width="350px"
+		android:layout_gravity="center">
+		<requestFocus></requestFocus>
+	</EditText>
+
 <EditText 
-	android:id="@+id/Username"
+	android:id="@+id/subCode"
 	android:hint="Subject Code"
 	android:layout_width="350px"
 	android:layout_height="wrap_content"
 	android:layout_gravity="center"
 >
-<requestFocus></requestFocus>
 </EditText>
+
+
 <EditText 
 		android:id="@+id/Password"
 		android:password="true"

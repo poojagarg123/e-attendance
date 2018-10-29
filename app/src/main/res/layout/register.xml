@@ -16,8 +16,15 @@
 >
 <requestFocus></requestFocus>
 </EditText>
- 
-<EditText 
+	<EditText
+		android:id="@+id/facultyusername"
+		android:layout_width="350px"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:hint="Faculty Username"
+		android:paddingTop="20px"></EditText>
+
+	<EditText
 		android:id="@+id/Password"
 		android:password="true"
 		android:paddingTop="20px"
@@ -26,6 +33,8 @@
 		android:layout_width="350px" 
 		android:layout_gravity="center">
   </EditText>
+
+
    <EditText 
   		android:id="@+id/Code"
   		android:layout_width="350px"
